@@ -3,6 +3,7 @@ package ru.netology.unit;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CashbackHackServiceTest {
 
@@ -10,9 +11,11 @@ class CashbackHackServiceTest {
     void amountEqualsZero()  {
         CashbackHackService cashbackHackService = new CashbackHackService();
         int boundary = 0;
-        int actual = cashbackHackService.remain(boundary);
-        int expected = 0;
-        assertEquals(expected, actual);
+        IllegalAccessException exception = assertThrows(IllegalAccessException.class, () -> {
+            throw new IllegalAccessException("amount must be greater than zero");
+        });
+
+        assertEquals("amount must be greater than zero", exception.getMessage()));
     }
 
     @Test

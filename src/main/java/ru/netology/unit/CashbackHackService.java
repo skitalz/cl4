@@ -5,12 +5,9 @@ public class CashbackHackService {
     private final int boundary = 1000;
 
     public int remain(int amount) {
-        if (amount <= 0) {
-            try {
-                throw new IllegalAccessException("amount must be greater than zero");
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
+        if (amount <= 0)
+            throw new IllegalAccessException("amount must be greater than zero");
+
         }
 
         boolean isNeedMore = amount % boundary != 0;
