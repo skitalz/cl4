@@ -11,8 +11,8 @@ class CashbackHackServiceTest {
     void amountEqualsZero()  {
         CashbackHackService cashbackHackService = new CashbackHackService();
         int boundary = 0;
-        IllegalAccessException exception = assertThrows(IllegalAccessException.class, () -> {
-            throw new IllegalAccessException("amount must be greater than zero");
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            throw new IllegalArgumentException("amount must be greater than zero");
         });
 
         assertEquals("amount must be greater than zero", exception.getMessage()));
